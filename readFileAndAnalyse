@@ -1,3 +1,90 @@
  private void readFileAndAnalyse (String f)
     {
+    try {
+                    for ( int l = 0 ; l< arrayOfDifferentLengths.length ; l ++)
+ arrayOfDifferentLengths[i] = new LinkedList<WordInformation> ();
+File f1=new File (f);
+ Scanner read = new Scanner (f1);
+int lineNo = 0;
+n =0;
+m =0;  
+String a[] = null;
+ while (read.hasNextLine())    
+ {
+ a= line.split("[ ; ,  .  ]");   
+ lineNo ++;
+int position =1;//*
+  for (int j = 0; j < a.length; j++)  
+    {
+    String Word1 = a[j].trim();
+                         if (Word1.equalsIgnoreCase("") != true)   
+                         {
+                            n++;
+                            boolean founded = false;
+                            
+if (arrayOfDifferentLengths[Word1.length()].empty())
+                                arrayOfDifferentLengths[word.length()].insert(new WordInformation (Word1 , lineNo, position));
+                            
+    else
+                            {
+                                arrayOfDifferentLengths[Word1.length()].findFirst();
+                                while (! arrayOfDifferentLengths[Word1.length()].last() && ! founded)
+                                {
+
+    
+     WordInformation data = arrayOfDifferentLengths[Word1.length()].retrieve();
+                                    if (data.word.equalsIgnoreCase(Word1) == true)
+                                    {
+                                        data.Add(lineNo, position);
+                                        arrayOfDifferentLengths[Word1.length()].update(data);
+                                        founded = true;
+                                        
+                                            }
+                                    else
+                                        arrayOfDifferentLengths[Word1.length()].findNext();
+                                }
+                                if ( ! founded)
+                                {
+          WordInformation Data = arrayOfDifferentLengths[Word1.length()].retrieve();
+                                    if (data.word.equalsIgnoreCase(Word1) == true)
+                                    {
+                                        Data.Add(lineNo, position);
+                                        arrayOfDifferentLengths[Word1.length()].update(Data);
+                                        founded = true;
+                                    }
+                                }
+     if (!founded )
+                                    arrayOfDifferentLengths[Word1.length()].insert(new WordInformation (Word1 , lineNo, position));
+                            }
+    
+         if (!founded )
+                            {
+                                sortedArray[m] = new WordInformation (Word1 , lineNo, position);
+                                m++;
+                            }
+                            else
+                            {
+                                for ( int i = 0 ; i < m ; i++)
+                                    if (sortedArray[i] != null && sortedArray[i].word.equalsIgnoreCase(Word1) == true)
+                                        sortedArray[i].size ++ ;
+                            }
+                         }
+                         position ++ ;
+                    }
+    
+     }
+                reader.close();
+    
+    
+              mergesort(0, m-1 );
+                
+                } catch (IOException ex) {
+            System.out.println("sorry ,Error");
+        }
+        
+    }
+    
+    
+    
+    
         }
